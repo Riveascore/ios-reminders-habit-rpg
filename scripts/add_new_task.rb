@@ -14,10 +14,10 @@ headers = {
 }
 # payload = "{\"key\":\"value\"}"
 payload = {
-	:object => "Stuffffffed crust pizza yo"
+	:type => 'todo',
+	:text => 'New todo from ruby!'
 }.to_json
 
 @c.url = create_task_url
 @c.headers = headers
-@c.verbose = true
 @c.http_post(payload)
