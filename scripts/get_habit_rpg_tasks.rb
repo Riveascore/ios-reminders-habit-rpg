@@ -1,16 +1,14 @@
 require 'curb'
 require 'highline/import'
 
-# c = Curl::Easy.Perform(tasks_url)
+api_key = ENV['HABIT_RPG_API_KEY']
+habit_rpg_user_id = ENV['HABIT_RPG_USER_ID']
 
-# api_key = ask "Enter api key: "
-api_key = ask "Enter api key: "
+tasks_url = "https://habitrpg.com:443/api/v2/user/tasks"
 
-# tasks_url = "https://habitrpg.com:443/api/v2/user/tasks"
-# habit_rpg_user_id = "1c26435e-906d-4f1f-8cd5-d7d9ab03e9c7"
-# user_id_field = Curl::PostField.content('x-api-user', habit_rpg_user_id)
-# c = Curl::Easy.http_get(tasks_url, user_id_field, api_key)
+@c = Curl::Easy.new(tasks_url) do |curl|
+	curl.headers["x-api-user"] = habit_rpg_user_id
+	curl.headers["x-api-key"] = api_key
+end
 
-
-
-# curl -X GET -H "x-api-key:" -H "x-api-user:" https://habitrpg.com:443/api/v2/user/tasks
+@c.perform
