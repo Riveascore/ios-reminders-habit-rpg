@@ -1,0 +1,14 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    curb (0.8.8)
+    highline (1.7.2)
+    json-serializer (0.0.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  curb
+  highline
+  json-serializer

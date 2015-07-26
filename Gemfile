@@ -1,2 +1,5 @@
+source 'https://rubygems.org'
+
 gem 'curb'
-gem 'highline/import'
+gem 'highline'
+gem 'json-serializer'
