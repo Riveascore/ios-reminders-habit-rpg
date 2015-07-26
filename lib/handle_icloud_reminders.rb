@@ -1,3 +1,5 @@
+require 'lib/icloud'
+
 module HandleICloudReminders
 
   # iCloud username and password from environment variables
