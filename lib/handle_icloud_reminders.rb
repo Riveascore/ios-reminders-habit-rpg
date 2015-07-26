@@ -6,6 +6,7 @@ module HandleICloudReminders
   ICLOUD_USERNAME = ENV['ICLOUD_USERNAME']
   ICLOUD_PASSWORD = ENV['ICLOUD_PASSWORD']
 
+  # TODO optionally pass session object in case we already have an ICloud session object
   def self.add_reminder(options = {})
     options = {
       :title => 'Default handle_ios_reminders'
