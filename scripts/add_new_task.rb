@@ -1,23 +1,6 @@
-require "json_serializer"
-require 'curb'
+require 'lib/handle_habit_rpg'
+require 'icloud'
 
-api_key = ENV['HABIT_RPG_API_KEY']
-habit_rpg_user_id = ENV['HABIT_RPG_USER_ID']
+task_options = { :text => "Just made a new task from add_new_task.rb" }
 
-@c = Curl::Easy.new
-create_task_url = "https://habitrpg.com:443/api/v2/user/tasks"
-headers = {
-	'Content-Type' => 'application/json',
-	'Accept' => 'application/json',
-	'x-api-user' => habit_rpg_user_id,
-	'x-api-key' => api_key
-}
-# payload = "{\"key\":\"value\"}"
-payload = {
-	:type => 'todo',
-	:text => 'New todo from ruby!'
-}.to_json
-
-@c.url = create_task_url
-@c.headers = headers
-@c.http_post(payload)
+HandleHabitRPG.add_task(task_options)

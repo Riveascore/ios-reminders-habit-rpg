@@ -1,7 +1,7 @@
 require "json_serializer"
 require 'curb'
 
-module HandleHabitRpg
+module HandleHabitRPG
 
 	# Key and user_id are static in environment
 	API_KEY = ENV['HABIT_RPG_API_KEY']
@@ -24,11 +24,11 @@ module HandleHabitRpg
 		}
 	}
 
-	def make_url(url_suffix)
+	def self.make_url(url_suffix)
 		return "#{API_PREFIX}#{url_suffix}"
 	end
 
-	def add_todo(options = {})
+	def self.add_task(options = {})
 		options = {
 			:type => 	'todo',
 			:text => 'New todo from ruby!'
